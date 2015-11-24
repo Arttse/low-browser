@@ -28,7 +28,7 @@ lowBrowser.core
 
 ### Browser Core Version
 
-Now just for `Trident`.
+For All.
 
 ```javascript
 lowBrowser.coreVersion
@@ -54,4 +54,14 @@ May be `Xbox 360` or `Xbox One`.
 
 ```javascript
 lowBrowser.gamePlatform
+```
+
+## Functions
+
+### init
+You can initialize the script with your userAgent string.
+This function runs automatically for current browser.
+
+```javascript
+lowBrowser.init( userAgent );
 ```
