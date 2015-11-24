@@ -59,7 +59,7 @@ lowBrowser.gamePlatform
 ## Functions
 
 ### init
-You can initialize the script with your userAgent string.
+You can initialize script with your userAgent string.
 This function runs automatically for current browser.
 
 ```javascript
