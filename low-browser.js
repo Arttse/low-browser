@@ -3,7 +3,7 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.1.1
+ * Version: 0.1.2-dev
  */
 
 (function ( window ) {
@@ -59,7 +59,7 @@
         if ( m = userAgent.match( /Edge\/(.*?)\.(\d+)/i ) ) {
             window.lowBrowser.name        = 'Edge';
             window.lowBrowser.version     = m[1];
-            window.lowBrowser.osBuild     = m[2];
+            window.lowBrowser.osBuild     = +m[2] ? m[2] : undefined;
             window.lowBrowser.core        = 'EdgeHTML';
             window.lowBrowser.coreVersion = m[1] + '.' + m[2];
         }
