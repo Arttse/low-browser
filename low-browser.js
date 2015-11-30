@@ -30,12 +30,12 @@
         this.gamePlatform = undefined;
 
         /** Check Windows OS */
-        if ( m = userAgent.match( /(Windows.*?)(;|\))/i ) ) {
+        if ( ( m = userAgent.match( /(Windows.*?)(;|\))/i ) ) ) {
             this.os = m[1];
         }
 
         /** Check Trident version core */
-        if ( m = userAgent.match( /Trident\/(\d+\.\d+)(;|\))/i ) ) {
+        if ( ( m = userAgent.match( /Trident\/(\d+\.\d+)(;|\))/i ) ) ) {
             this.core        = 'Trident';
             this.coreVersion = m[1];
         }
@@ -47,19 +47,19 @@
         }
 
         /** Check IE < 11 */
-        if ( m = userAgent.match( /MSIE (\d+\.\d+)(;|\))/i ) ) {
+        if ( ( m = userAgent.match( /MSIE (\d+\.\d+)(;|\))/i ) ) ) {
             this.name    = 'IE';
             this.version = m[1];
         }
 
         /** Check IEMobile */
-        if ( m = userAgent.match( /IEMobile\/(\d+\.\d+)(;|\))/i ) ) {
+        if ( ( m = userAgent.match( /IEMobile\/(\d+\.\d+)(;|\))/i ) ) ) {
             this.name    = 'IEMobile';
             this.version = m[1];
         }
 
         /** Check EDGE browser */
-        if ( m = userAgent.match( /Edge\/(.*?)\.(\d+)/i ) ) {
+        if ( ( m = userAgent.match( /Edge\/(.*?)\.(\d+)/i ) ) ) {
             this.name        = 'Edge';
             this.version     = m[1];
             this.osBuild     = +m[2] ? m[2] : undefined;
@@ -89,7 +89,7 @@
         /** Check AMD */
         if ( typeof define === 'function' && define.amd ) {
             define ( function () {
-                return lowBrowser
+                return lowBrowser;
             } );
         } else {
             lowBrowser.parse( global.navigator.userAgent );
