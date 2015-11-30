@@ -3,80 +3,99 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.1.2-dev
+ * Version: 0.2.0-dev
  */
 
-(function ( window ) {
+(function ( global ) {
 
-    /** Get userAgent of current browser */
-    var userAgent = window.navigator.userAgent,
-        m;
+    var lowBrowser = {};
 
-    /** Create object inside window */
-    window.lowBrowser = {};
+    /**
+     * Parse user agent browser
+     *
+     * @param {string} userAgent - string of user agent browser
+     *
+     * @returns {lowBrowser}
+     */
+    lowBrowser.parse = function ( userAgent ) {
 
-    /** Initialization function */
-    window.lowBrowser.init = function ( userAgent ) {
+        var m;
 
-        window.lowBrowser.name         = undefined;
-        window.lowBrowser.version      = undefined;
-        window.lowBrowser.core         = undefined;
-        window.lowBrowser.coreVersion  = undefined;
-        window.lowBrowser.os           = undefined;
-        window.lowBrowser.osBuild      = undefined;
-        window.lowBrowser.gamePlatform = undefined;
+        this.name         = undefined;
+        this.version      = undefined;
+        this.core         = undefined;
+        this.coreVersion  = undefined;
+        this.os           = undefined;
+        this.osBuild      = undefined;
+        this.gamePlatform = undefined;
 
         /** Check Windows OS */
         if ( m = userAgent.match( /(Windows.*?)(;|\))/i ) ) {
-            window.lowBrowser.os = m[1];
+            this.os = m[1];
         }
 
         /** Check Trident version core */
         if ( m = userAgent.match( /Trident\/(\d+\.\d+)(;|\))/i ) ) {
-            window.lowBrowser.core        = 'Trident';
-            window.lowBrowser.coreVersion = m[1];
+            this.core        = 'Trident';
+            this.coreVersion = m[1];
         }
 
         /** Check IE 11 */
-        if ( /rv:11\.0/i.test( userAgent ) && window.lowBrowser.core === 'Trident' ) {
-            window.lowBrowser.name    = 'IE';
-            window.lowBrowser.version = '11.0';
+        if ( /rv:11\.0/i.test( userAgent ) && this.core === 'Trident' ) {
+            this.name    = 'IE';
+            this.version = '11.0';
         }
 
         /** Check IE < 11 */
         if ( m = userAgent.match( /MSIE (\d+\.\d+)(;|\))/i ) ) {
-            window.lowBrowser.name    = 'IE';
-            window.lowBrowser.version = m[1];
+            this.name    = 'IE';
+            this.version = m[1];
         }
 
         /** Check IEMobile */
         if ( m = userAgent.match( /IEMobile\/(\d+\.\d+)(;|\))/i ) ) {
-            window.lowBrowser.name    = 'IEMobile';
-            window.lowBrowser.version = m[1];
+            this.name    = 'IEMobile';
+            this.version = m[1];
         }
 
         /** Check EDGE browser */
         if ( m = userAgent.match( /Edge\/(.*?)\.(\d+)/i ) ) {
-            window.lowBrowser.name        = 'Edge';
-            window.lowBrowser.version     = m[1];
-            window.lowBrowser.osBuild     = +m[2] ? m[2] : undefined;
-            window.lowBrowser.core        = 'EdgeHTML';
-            window.lowBrowser.coreVersion = m[1] + '.' + m[2];
+            this.name        = 'Edge';
+            this.version     = m[1];
+            this.osBuild     = +m[2] ? m[2] : undefined;
+            this.core        = 'EdgeHTML';
+            this.coreVersion = m[1] + '.' + m[2];
         }
 
         /** Check Xbox 360 */
         if ( /Xbox/i.test( userAgent ) ) {
-            window.lowBrowser.gamePlatform = 'Xbox 360';
+            this.gamePlatform = 'Xbox 360';
         }
 
         /** Check Xbox One */
         if ( /Xbox One/i.test( userAgent ) ) {
-            window.lowBrowser.gamePlatform = 'Xbox One';
+            this.gamePlatform = 'Xbox One';
         }
+
+        return this;
 
     };
 
-    /** Initialization for current browser */
-    window.lowBrowser.init( userAgent );
+    /** Check server side or browser */
+    if ( typeof exports === 'object' && module !== 'undefined' ) {
+        module.exports = lowBrowser;
+    } else {
 
-}) ( window );
+        /** Check AMD */
+        if ( typeof define === 'function' && define.amd ) {
+            define ( function () {
+                return lowBrowser
+            } );
+        } else {
+            lowBrowser.init( global.navigator.userAgent );
+            global.lowBrowser = lowBrowser;
+        }
+
+    }
+
+}) ( this );
