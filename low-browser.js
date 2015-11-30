@@ -92,7 +92,7 @@
                 return lowBrowser
             } );
         } else {
-            lowBrowser.init( global.navigator.userAgent );
+            lowBrowser.parse( global.navigator.userAgent );
             global.lowBrowser = lowBrowser;
         }
 
