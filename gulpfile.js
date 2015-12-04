@@ -7,7 +7,8 @@ var gulp            = require ( 'gulp' ),
     validatePackage = require ( 'gulp-nice-package' ),
     toc             = require ( 'gulp-doctoc' ),
     mapstream       = require ( 'map-stream' ),
-    sequence        = require ( 'run-sequence' );
+    sequence        = require ( 'run-sequence' ),
+    isValid;
 
 
 process.on( 'exit', function () {
@@ -30,8 +31,6 @@ gulp.task( 'toc', function () {
 
 /** Validate Package.json */
 gulp.task( 'validator.package', function () {
-    var isValid;
-
     return gulp
         .src( './package.json' )
         .pipe( validatePackage () )
