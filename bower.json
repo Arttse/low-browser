@@ -1,0 +1,40 @@
+{
+  "name": "low-browser",
+  "description": "Low Browser it is a small tool to check Microsoft browsers (IE and EDGE) on JavaScript",
+  "main": "low-browser.min.js",
+  "authors": [
+    "Nikita «Arttse» Bystrov"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "low",
+    "browser",
+    "IE",
+    "Internet",
+    "Explorer",
+    "Edge",
+    "Microsoft",
+    "user",
+    "agent",
+    "small",
+    "tool",
+    "check",
+    "server",
+    "side",
+    "low-browser"
+  ],
+  "homepage": "https://github.com/Arttse/low-browser",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "gulpfile.js",
+    "package.json"
+  ]
+}
