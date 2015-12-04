@@ -6,7 +6,15 @@ var gulp            = require ( 'gulp' ),
     jshintStylish   = require ( 'jshint-stylish' ),
     validatePackage = require ( 'gulp-nice-package' ),
     toc             = require ( 'gulp-doctoc' ),
+    mapstream       = require ( 'map-stream' ),
     sequence        = require ( 'run-sequence' );
+
+
+process.on( 'exit', function () {
+    process.nextTick( function () {
+        process.exit( 1 );
+    } );
+} );
 
 
 /** Generate Table of Contents for README */
@@ -22,9 +30,20 @@ gulp.task( 'toc', function () {
 
 /** Validate Package.json */
 gulp.task( 'validator.package', function () {
+    var isValid;
+
     return gulp
         .src( './package.json' )
-        .pipe( validatePackage () );
+        .pipe( validatePackage () )
+        .pipe( mapstream ( function ( file, cb ) {
+            isValid = file.nicePackage.valid;
+            cb ( null, file );
+        } ) )
+        .on( 'end', function () {
+            if ( !isValid ) {
+                process.emit( 'exit' );
+            }
+        } );
 } );
 
 /** All validators */
@@ -108,4 +127,8 @@ gulp.task( 'default', function ( cb ) {
     sequence ( 'check.all', 'toc', 'compress', function () {
         cb ();
     } );
+} );
+
+gulp.task( 't', ['validator.package'], function () {
+    console.log( 'sd' );
 } );
