@@ -1,0 +1,54 @@
+{
+  "name": "low-browser",
+  "version": "0.2.0-pre1",
+  "description": "Low Browser it is a small tool to check Microsoft browsers (IE and EDGE) on JavaScript",
+  "main": "low-browser.js",
+  "scripts": {
+    "test": "gulp check.all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arttse/low-browser.git"
+  },
+  "keywords": [
+    "low",
+    "browser",
+    "IE",
+    "Internet",
+    "Explorer",
+    "Edge",
+    "Microsoft",
+    "user",
+    "agent",
+    "small",
+    "tool",
+    "check",
+    "server",
+    "side",
+    "low-browser"
+  ],
+  "author": {
+    "name": "Nikita «Arttse» Bystrov",
+    "url": "https://github.com/Arttse"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Arttse/low-browser/issues"
+  },
+  "homepage": "https://github.com/Arttse/low-browser#readme",
+  "devDependencies": {
+    "chai": "3",
+    "gulp": "3",
+    "gulp-doctoc": "latest",
+    "gulp-jshint": "2",
+    "gulp-mocha": "2",
+    "gulp-nice-package": "1",
+    "gulp-rename": "1",
+    "gulp-uglify": "1",
+    "jshint": "2",
+    "jshint-stylish": "2",
+    "mocha": "2",
+    "run-sequence": "1"
+  },
+  "dependencies": {}
+}
