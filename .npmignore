@@ -1,0 +1,10 @@
+/.*/
+/node_modules
+
+.jshintrc
+
+/test
+.travis.yml
+
+bower.json
+gulpfile.js
