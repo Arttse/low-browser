@@ -1,6 +1,26 @@
 # Low Browser
 
+[![Build Status](https://travis-ci.org/Arttse/low-browser.svg)](https://travis-ci.org/Arttse/low-browser)
+[![devDependency Status](https://david-dm.org/Arttse/low-browser/dev-status.svg)](https://david-dm.org/Arttse/low-browser#info=devDependencies)
+
 > Low Browser it is a small tool to check Microsoft browsers (IE and EDGE) on JavaScript
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Content
+
+- [What you get](#what-you-get)
+  - [Browser Name](#browser-name)
+  - [Browser Version](#browser-version)
+  - [Browser Core](#browser-core)
+  - [Browser Core Version](#browser-core-version)
+  - [Operating System](#operating-system)
+  - [Operating System Build Number](#operating-system-build-number)
+  - [Game Platforms](#game-platforms)
+- [Functions](#functions)
+  - [parse](#parse)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## What you get
 
@@ -27,8 +47,6 @@ lowBrowser.core
 ```
 
 ### Browser Core Version
-
-For All.
 
 ```javascript
 lowBrowser.coreVersion
@@ -58,10 +76,13 @@ lowBrowser.gamePlatform
 
 ## Functions
 
-### init
-You can initialize script with your userAgent string.
-This function runs automatically for current browser.
+### parse
+
+Parses a string of user browser. After that, you can get the information of browser.
+This function runs automatically if you want use this script on client side (not AMD).
 
 ```javascript
-lowBrowser.init( userAgent );
+lowBrowser.parse( userAgent );
 ```
+
+Where `userAgent` — string of user agent browser
