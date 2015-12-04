@@ -39,7 +39,7 @@
   "devDependencies": {
     "chai": "3",
     "gulp": "3",
-    "gulp-doctoc": "latest",
+    "gulp-doctoc": "*",
     "gulp-jshint": "2",
     "gulp-mocha": "2",
     "gulp-nice-package": "1",
