@@ -3,7 +3,7 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.2.0-pre1
+ * Version: 0.2.0-pre2
  */
 
 (function ( global ) {
@@ -21,6 +21,7 @@
 
         var m;
 
+        this.userAgent    = userAgent;
         this.name         = undefined;
         this.version      = undefined;
         this.core         = undefined;
