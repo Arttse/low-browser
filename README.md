@@ -1,5 +1,8 @@
 # Low Browser
 
+[![GitHub version](https://badge.fury.io/gh/Arttse%2Flow-browser.svg)](https://github.com/Arttse/low-browser/releases/latest)
+[![npm version](https://badge.fury.io/js/low-browser.svg)](https://www.npmjs.com/package/low-browser)
+[![Bower version](https://badge.fury.io/bo/low-browser.svg)](http://bower.io/search/?q=low-browser)
 [![Build Status](https://travis-ci.org/Arttse/low-browser.svg)](https://travis-ci.org/Arttse/low-browser)
 [![devDependency Status](https://david-dm.org/Arttse/low-browser/dev-status.svg)](https://david-dm.org/Arttse/low-browser#info=devDependencies)
 
