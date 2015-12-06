@@ -83,7 +83,9 @@ gulp.task( 'lints', function ( cb ) {
 gulp.task( 'test.node', function () {
     return gulp
         .src( './test/tests.js', { read : false } )
-        .pipe( gulpMocha () );
+        .pipe( gulpMocha ( {
+            reporter : 'dot'
+        } ) );
 } );
 
 /** All tests */
