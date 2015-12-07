@@ -139,7 +139,3 @@ gulp.task( 'default', function ( cb ) {
         cb ();
     } );
 } );
-
-gulp.task( 't', ['validator.package'], function () {
-    console.log( 'sd' );
-} );
