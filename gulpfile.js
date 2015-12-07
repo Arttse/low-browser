@@ -3,6 +3,7 @@ var gulp            = require ( 'gulp' ),
     gulpJSHint      = require ( 'gulp-jshint' ),
     gulpUglify      = require ( 'gulp-uglify' ),
     gulpMocha       = require ( 'gulp-mocha' ),
+    mochaPhantomJS  = require ( 'gulp-mocha-phantomjs' ),
     jshintStylish   = require ( 'jshint-stylish' ),
     validatePackage = require ( 'gulp-nice-package' ),
     toc             = require ( 'gulp-doctoc' ),
@@ -88,9 +89,18 @@ gulp.task( 'test.node', function () {
         } ) );
 } );
 
+/** Test in browser */
+gulp.task( 'test.browser', function () {
+    return gulp
+        .src( 'test/browser.html' )
+        .pipe( mochaPhantomJS ( {
+            reporter : 'dot'
+        } ) );
+} );
+
 /** All tests */
 gulp.task( 'tests', function ( cb ) {
-    sequence ( 'test.node', function () {
+    sequence ( 'test.node', 'test.browser', function () {
         cb ();
     } );
 } );
