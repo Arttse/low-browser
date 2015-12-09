@@ -3,7 +3,7 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.2.0-pre6
+ * Version: 0.2.0-pre7
  */
 
 (function ( global ) {
@@ -32,13 +32,13 @@
 
         /** Check Windows OS */
         if ( ( m = userAgent.match( /(Windows.*?)(;|\))/i ) ) ) {
-            this.os = m[1].replace(/^\s+|\s+$/g, '');
+            this.os = m[1].replace( /^\s+|\s+$/g, '' );
         }
 
         /** Check Trident version core */
         if ( ( m = userAgent.match( /Trident(\/|\s)(\d+\.(\d+|\w+))(;|\))/i ) ) ) {
             this.core        = 'Trident';
-            this.coreVersion = m[2].replace(/^\s+|\s+$/g, '');
+            this.coreVersion = m[2].replace( /^\s+|\s+$/g, '' );
         }
 
         /** Check IE 11 */
@@ -50,22 +50,22 @@
         /** Check IE < 11 */
         if ( ( m = userAgent.match( /MSIE(\/|\s)(\d+\.(\d+|\w+))(;|\))/i ) ) ) {
             this.name    = 'IE';
-            this.version = m[2].replace(/^\s+|\s+$/g, '');
+            this.version = m[2].replace( /^\s+|\s+$/g, '' );
         }
 
         /** Check IEMobile */
         if ( ( m = userAgent.match( /IEMobile(\/|\s)(\d+\.(\d+|\w+))(;|\))/i ) ) ) {
             this.name    = 'IEMobile';
-            this.version = m[2].replace(/^\s+|\s+$/g, '');
+            this.version = m[2].replace( /^\s+|\s+$/g, '' );
         }
 
         /** Check EDGE browser */
         if ( ( m = userAgent.match( /Edge(\/|\s)(.*?)\.(\d+)/i ) ) ) {
             this.name        = 'Edge';
-            this.version     = m[2].replace(/^\s+|\s+$/g, '');
-            this.osBuild     = +m[3] ? m[3].replace(/^\s+|\s+$/g, '') : undefined;
+            this.version     = m[2].replace( /^\s+|\s+$/g, '' );
+            this.osBuild     = +m[3] ? m[3].replace( /^\s+|\s+$/g, '' ) : undefined;
             this.core        = 'EdgeHTML';
-            this.coreVersion = m[2].replace(/^\s+|\s+$/g, '') + '.' + m[3].replace(/^\s+|\s+$/g, '');
+            this.coreVersion = m[2].replace( /^\s+|\s+$/g, '' ) + '.' + m[3].replace( /^\s+|\s+$/g, '' );
         }
 
         /** Check Xbox 360 */
