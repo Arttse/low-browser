@@ -3,7 +3,7 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.2.0-pre7
+ * Version: 0.2.0-pre8
  */
 
 (function ( global ) {
@@ -29,6 +29,16 @@
         this.os           = undefined;
         this.osBuild      = undefined;
         this.gamePlatform = undefined;
+
+        /** Check Mac Power PC */
+        if ( /Mac_PowerPC/i.test( userAgent ) ) {
+            this.os = 'Mac_PowerPC';
+        }
+
+        /** Check Mac OS X */
+        if ( /Mac OS X/i.test( userAgent ) ) {
+            this.os = 'Mac OS X';
+        }
 
         /** Check Windows OS */
         if ( ( m = userAgent.match( /(Windows.*?)(;|\))/i ) ) ) {
