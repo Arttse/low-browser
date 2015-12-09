@@ -3,7 +3,7 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.2.0-pre5
+ * Version: 0.2.0-pre6
  */
 
 (function ( global ) {
@@ -36,7 +36,7 @@
         }
 
         /** Check Trident version core */
-        if ( ( m = userAgent.match( /Trident(\/|\s)(\d+\.\d+)(;|\))/i ) ) ) {
+        if ( ( m = userAgent.match( /Trident(\/|\s)(\d+\.(\d+|\w+))(;|\))/i ) ) ) {
             this.core        = 'Trident';
             this.coreVersion = m[2].replace(/^\s+|\s+$/g, '');
         }
@@ -48,13 +48,13 @@
         }
 
         /** Check IE < 11 */
-        if ( ( m = userAgent.match( /MSIE(\/|\s)(\d+\.\d+)(;|\))/i ) ) ) {
+        if ( ( m = userAgent.match( /MSIE(\/|\s)(\d+\.(\d+|\w+))(;|\))/i ) ) ) {
             this.name    = 'IE';
             this.version = m[2].replace(/^\s+|\s+$/g, '');
         }
 
         /** Check IEMobile */
-        if ( ( m = userAgent.match( /IEMobile(\/|\s)(\d+\.\d+)(;|\))/i ) ) ) {
+        if ( ( m = userAgent.match( /IEMobile(\/|\s)(\d+\.(\d+|\w+))(;|\))/i ) ) ) {
             this.name    = 'IEMobile';
             this.version = m[2].replace(/^\s+|\s+$/g, '');
         }
