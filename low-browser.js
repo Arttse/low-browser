@@ -3,7 +3,7 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.2.0-pre8
+ * Version: 0.2.0-pre9
  */
 
 (function ( global ) {
@@ -19,7 +19,7 @@
      */
     lowBrowser.parse = function ( userAgent ) {
 
-        var m;
+        var m, regExp;
 
         this.userAgent    = userAgent;
         this.name         = undefined;
@@ -58,9 +58,15 @@
         }
 
         /** Check IE < 11 */
-        if ( ( m = userAgent.match( /MSIE(\/|\s)(\d+\.(\d+|\w+))(;|\))/i ) ) ) {
-            this.name    = 'IE';
-            this.version = m[2].replace( /^\s+|\s+$/g, '' );
+        regExp = 'MSIE(\\/|\\s)(\\d+\\.(\\d+|\\w+))(;|\\))';
+
+        if ( ( m = userAgent.match( new RegExp ( regExp, 'ig' ) ) ) ) {
+
+            if ( ( m = m[m.length - 1].match( new RegExp ( regExp, 'i' ) ) ) ) {
+                this.name    = 'IE';
+                this.version = m[2].replace( /^\s+|\s+$/g, '' );
+            }
+
         }
 
         /** Check IEMobile */
