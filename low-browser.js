@@ -3,7 +3,7 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.2.0-pre2
+ * Version: 0.2.0-pre3
  */
 
 (function ( global ) {
@@ -54,9 +54,9 @@
         }
 
         /** Check IEMobile */
-        if ( ( m = userAgent.match( /IEMobile\/(\d+\.\d+)(;|\))/i ) ) ) {
+        if ( ( m = userAgent.match( /IEMobile(\/|\s)(\d+\.\d+)(;|\))/i ) ) ) {
             this.name    = 'IEMobile';
-            this.version = m[1];
+            this.version = m[2];
         }
 
         /** Check EDGE browser */
