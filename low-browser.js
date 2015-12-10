@@ -3,7 +3,7 @@
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- * Version: 0.2.0-pre9
+ * Version: 0.2.0-pre10
  */
 
 (function ( global ) {
@@ -42,7 +42,13 @@
 
         /** Check Windows OS */
         if ( ( m = userAgent.match( /(Windows.*?)(;|\))/i ) ) ) {
+
             this.os = m[1].replace( /^\s+|\s+$/g, '' );
+
+            /** Fixes */
+            this.os = this.os.replace( /NT(\d)/i, 'NT $1' );
+            this.os = this.os.replace( /(NT\s\d{1,2})$/i, '$1.0' );
+
         }
 
         /** Check Trident version core */
