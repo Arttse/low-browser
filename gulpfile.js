@@ -24,7 +24,7 @@ gulp.task( 'toc', function () {
     return gulp
         .src( './README.md' )
         .pipe( toc ( {
-            title : '## Content'
+            title : '## Table of Contents'
         } ) )
         .pipe( gulp.dest( './' ) );
 } );

@@ -10,7 +10,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-## Content
+## Table of Contents
 
 - [What you get](#what-you-get)
   - [Browser Name](#browser-name)
