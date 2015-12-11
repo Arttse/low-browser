@@ -1,8 +1,14 @@
-# Autodetect text files
 * text=auto
 
-# Force the following filetypes to have unix eols, so Windows does not break them
-.* eol=lf
-*.html eol=lf
-*.js eol=lf
-*.json eol=lf
+.bowerrc   text eol=lf
+.jshintrc  text eol=lf
+.npmignore text eol=lf
+
+*.html text eol=lf
+
+*.js   text eol=lf
+*.json text eol=lf
+
+*.yaml     text eol=lf
+*.yml      text eol=lf
+*.yml.dist text eol=lf
