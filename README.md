@@ -22,6 +22,7 @@
   - [Game Platforms](#game-platforms)
 - [Functions](#functions)
   - [parse](#parse)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -89,3 +90,6 @@ lowBrowser.parse( userAgent );
 ```
 
 Where `userAgent` — string of user agent browser
+
+## License
+[MIT](http://www.opensource.org/licenses/mit-license.php) &copy; 2015 Nikita «Arttse» Bystrov
