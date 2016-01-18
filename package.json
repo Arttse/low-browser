@@ -41,6 +41,7 @@
     "gulp": "3",
     "gulp-doctoc": "*",
     "gulp-jshint": "2",
+    "gulp-lintspaces": "^0.3.4",
     "gulp-mocha": "2",
     "gulp-mocha-phantomjs": "*",
     "gulp-nice-package": "1",
