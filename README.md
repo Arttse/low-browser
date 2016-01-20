@@ -12,6 +12,13 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
+- [Install](#install)
+  - [NPM](#npm)
+  - [Bower](#bower)
+- [Usage](#usage)
+  - [Browser](#browser)
+  - [Browser (AMD)](#browser-amd)
+  - [Server side](#server-side)
 - [What you get](#what-you-get)
   - [Browser Name](#browser-name)
   - [Browser Version](#browser-version)
@@ -25,6 +32,63 @@
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+## Install
+
+### NPM
+```bash
+npm install low-browser --save
+```
+
+### Bower
+```bash
+bower install low-browser --save
+```
+
+
+## Usage
+
+### Browser
+
+- Include script
+  ```html
+  <script src="low-browser.js"></script>
+  ```
+
+- Work with script
+  ```javascript
+  //...
+  if ( lowBrowser.version === '8.0' ) {
+      // Do something
+  }
+  //...
+  ```
+
+### Browser (AMD)
+> In `Asynchronous Module Definition` need to use function [parse](#parse)
+
+```javascript
+define ( 'your-module', ['low-browser'], function ( lowBrowser ) {
+    lowBrowser.parse ( navigator.userAgent );
+
+    if ( lowBrowser.version === '8.0' ) {
+        // Do something
+    }
+} );
+```
+
+### Server side
+> Low browser can be used in server side, e.g. Node.js
+
+```javascript
+var lowBrowser = require ( 'low-browser' ).parse ( userAgent );
+
+if ( lowBrowser.version === '8.0' ) {
+    // Do something
+}
+```
+
 
 ## What you get
 
