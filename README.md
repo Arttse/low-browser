@@ -156,4 +156,4 @@ lowBrowser.parse( userAgent );
 Where `userAgent` — string of user agent browser
 
 ## License
-[MIT](http://www.opensource.org/licenses/mit-license.php) &copy; 2015 Nikita «Arttse» Bystrov
+[MIT](http://www.opensource.org/licenses/mit-license.php) &copy; 2015-2016 Nikita «Arttse» Bystrov
