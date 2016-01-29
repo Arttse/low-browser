@@ -1,6 +1,6 @@
 {
   "name": "low-browser",
-  "description": "Low Browser it is a small tool to check Microsoft browsers (IE and EDGE) on JavaScript",
+  "description": "Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript",
   "main": "low-browser.min.js",
   "authors": [
     "Nikita «Arttse» Bystrov"
@@ -19,6 +19,7 @@
     "small",
     "tool",
     "check",
+    "definition",
     "server",
     "side",
     "low-browser"

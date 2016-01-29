@@ -1,7 +1,7 @@
 {
   "name": "low-browser",
   "version": "0.2.0-pre10",
-  "description": "Low Browser it is a small tool to check Microsoft browsers (IE and EDGE) on JavaScript",
+  "description": "Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript",
   "main": "low-browser.js",
   "scripts": {
     "test": "gulp check.all"
@@ -23,6 +23,7 @@
     "small",
     "tool",
     "check",
+    "definition",
     "server",
     "side",
     "low-browser"

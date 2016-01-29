@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/Arttse/low-browser.svg)](https://travis-ci.org/Arttse/low-browser)
 [![devDependency Status](https://david-dm.org/Arttse/low-browser/dev-status.svg)](https://david-dm.org/Arttse/low-browser#info=devDependencies)
 
-> Low Browser it is a small tool to check Microsoft browsers (IE and EDGE) on JavaScript
+> Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->

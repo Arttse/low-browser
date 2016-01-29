@@ -1,5 +1,5 @@
 /*!
- * Low Browser it is a small tool to check Microsoft browsers (IE and EDGE) on JavaScript
+ * Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript
  * https://github.com/Arttse/low-browser
  * Copyright (c) 2015-2016 Nikita «Arttse» Bystrov
  * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
