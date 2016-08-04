@@ -51,7 +51,7 @@
     "jshint": "2",
     "jshint-stylish": "2",
     "map-stream": "*",
-    "mocha": "2",
+    "mocha": "3.0.1",
     "run-sequence": "1"
   },
   "dependencies": {}
