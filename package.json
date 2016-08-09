@@ -43,15 +43,15 @@
     "gulp-doctoc": "^0.1.0",
     "gulp-jshint": "2",
     "gulp-lintspaces": "^0.4.0",
-    "gulp-mocha": "2",
+    "gulp-mocha": "3",
     "gulp-mocha-phantomjs": "*",
     "gulp-nice-package": "1",
     "gulp-rename": "1",
-    "gulp-uglify": "1",
+    "gulp-uglify": "2",
     "jshint": "2",
     "jshint-stylish": "2",
     "map-stream": "*",
-    "mocha": "2",
+    "mocha": "3",
     "run-sequence": "1"
   },
   "dependencies": {}
