@@ -14462,3 +14462,46 @@ describe ( 'Microsoft Internet Explorer', function () {
     } );
 
 } );
+
+describe ( 'Other', function () {
+
+    describe ( 'User Agent is empty', function () {
+        before ( function () {
+            lowBrowser.parse( '' );
+        } );
+
+        it ( 'User Agent should be empty', function () {
+            assert.strictEqual( lowBrowser.userAgent, '' );
+        } );
+
+        it ( 'Name should be «undefined»', function () {
+            assert.isUndefined( lowBrowser.name );
+        } );
+
+        it ( 'Version should be «undefined»', function () {
+            assert.isUndefined( lowBrowser.version );
+        } );
+
+        it ( 'Core should be «undefined»', function () {
+            assert.isUndefined( lowBrowser.core );
+        } );
+
+        it ( 'Core Version should be «undefined»', function () {
+            assert.isUndefined( lowBrowser.coreVersion );
+        } );
+
+        it ( 'OS should be «undefined»', function () {
+            assert.isUndefined( lowBrowser.os );
+        } );
+
+        it ( 'OS Build should be «undefined»', function () {
+            assert.isUndefined( lowBrowser.osBuild );
+        } );
+
+        it ( 'Game Platform should be «undefined»', function () {
+            assert.isUndefined( lowBrowser.gamePlatform );
+        } );
+
+    } );
+
+} );
