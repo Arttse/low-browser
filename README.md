@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/low-browser.svg)](https://www.npmjs.com/package/low-browser)
 [![Bower version](https://badge.fury.io/bo/low-browser.svg)](http://bower.io/search/?q=low-browser)
 [![Build Status](https://travis-ci.org/Arttse/low-browser.svg)](https://travis-ci.org/Arttse/low-browser)
-[![devDependency Status](https://david-dm.org/Arttse/low-browser/dev-status.svg)](https://david-dm.org/Arttse/low-browser#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/github/Arttse/low-browser/badge.svg?branch=master)](https://coveralls.io/github/Arttse/low-browser?branch=master)
 
 > Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript
 

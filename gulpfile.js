@@ -4,6 +4,8 @@ var gulpJSHint = require ( 'gulp-jshint' );
 var gulpUglify = require ( 'gulp-uglify' );
 var gulpMocha = require ( 'gulp-mocha' );
 var mochaPhantomJS = require ( 'gulp-mocha-phantomjs' );
+var istanbul = require ( 'gulp-istanbul' );
+var coveralls = require ( 'gulp-coveralls' );
 var jshintStylish = require ( 'jshint-stylish' );
 var validatePackage = require ( 'gulp-nice-package' );
 var toc = require ( 'gulp-doctoc' );
@@ -79,7 +81,8 @@ gulp.task ( 'lint.spaces', function () {
         .src ( [
             './*.?(html|js|json|yml|md)',
             './**/*.?(html|js|json|yml|md)',
-            '!./node_modules/**'
+            '!./node_modules/**',
+            '!./coverage/**'
         ] )
         .pipe ( lintSpaces ( {
             editorconfig : './.editorconfig',
@@ -95,14 +98,22 @@ gulp.task ( 'lints', function ( cb ) {
     } );
 } );
 
+/** Istanbul pre-test */
+gulp.task ( 'pre-test', function () {
+    return gulp
+        .src ( ['./low-browser.js'] )
+        .pipe ( istanbul () )
+        .pipe ( istanbul.hookRequire () );
+} );
 
-/** Run server side tests */
-gulp.task ( 'test.node', function () {
+/** Run server side tests with coverage */
+gulp.task ( 'test.node', ['pre-test'], function () {
     return gulp
         .src ( './test/tests.js', {read : false} )
         .pipe ( gulpMocha ( {
             reporter : 'dot'
-        } ) );
+        } ) )
+        .pipe ( istanbul.writeReports () );
 } );
 
 /** Test in browser */
@@ -119,6 +130,13 @@ gulp.task ( 'tests', function ( cb ) {
     sequence ( 'test.node', 'test.browser', function () {
         cb ();
     } );
+} );
+
+/** Push to coveralls.io */
+gulp.task ( 'coveralls', function () {
+    return gulp
+        .src ( 'coverage/**/lcov.info' )
+        .pipe ( coveralls () );
 } );
 
 

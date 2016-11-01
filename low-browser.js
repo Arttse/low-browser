@@ -66,13 +66,12 @@
         /** Check IE < 11 */
         regExp = 'MSIE(\\/|\\s)(\\d+\\.(\\d+|\\w+))(;|\\))';
 
-        if ( ( m = userAgent.match( new RegExp ( regExp, 'ig' ) ) ) ) {
-
-            if ( ( m = m[m.length - 1].match( new RegExp ( regExp, 'i' ) ) ) ) {
-                this.name    = 'IE';
-                this.version = m[2].replace( /^\s+|\s+$/g, '' );
-            }
-
+        if (
+            ( m = userAgent.match ( new RegExp ( regExp, 'ig' ) ) ) &&
+            ( m = m[m.length - 1].match ( new RegExp ( regExp, 'i' ) ) )
+        ) {
+            this.name = 'IE';
+            this.version = m[2].replace ( /^\s+|\s+$/g, '' );
         }
 
         /** Check IEMobile */
@@ -104,21 +103,20 @@
 
     };
 
-    /** Check server side or browser */
-    if ( typeof exports === 'object' && module !== 'undefined' ) {
+    /** Universal Module Definition */
+    /* istanbul ignore next */
+    if ( typeof module === 'object' && module.exports ) {
+        // CommonJS
         module.exports = lowBrowser;
+    } else if ( typeof define === 'function' && define.amd ) {
+        // AMD. Register as an anonymous module.
+        define ( function () {
+            return lowBrowser;
+        } );
     } else {
-
-        /** Check AMD */
-        if ( typeof define === 'function' && define.amd ) {
-            define ( function () {
-                return lowBrowser;
-            } );
-        } else {
-            lowBrowser.parse( global.navigator.userAgent );
-            global.lowBrowser = lowBrowser;
-        }
-
+        // Browser globals
+        lowBrowser.parse ( global.navigator.userAgent );
+        global.lowBrowser = lowBrowser;
     }
 
 }) ( this );
