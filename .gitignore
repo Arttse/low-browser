@@ -1,2 +1,15 @@
-/.*/
-/node_modules/
+# Hidden folders
+.*/
+
+# Backup files
+*~
+
+# Node.js modules
+node_modules/
+
+# Test coverage
+coverage/
+
+# Yarn - package manager
+.yarnclean
+yarn.lock
