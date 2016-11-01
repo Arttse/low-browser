@@ -4,9 +4,13 @@ node_js:
   - '6'
   - '5'
   - '4'
-install:
+before_install:
   - npm install -g gulp
+install:
   - npm install
+script:
+  - npm run test
+  - npm run coveralls
 cache:
   directories:
     - $HOME/.npm
