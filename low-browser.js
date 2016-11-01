@@ -66,13 +66,12 @@
         /** Check IE < 11 */
         regExp = 'MSIE(\\/|\\s)(\\d+\\.(\\d+|\\w+))(;|\\))';
 
-        if ( ( m = userAgent.match( new RegExp ( regExp, 'ig' ) ) ) ) {
-
-            if ( ( m = m[m.length - 1].match( new RegExp ( regExp, 'i' ) ) ) ) {
-                this.name    = 'IE';
-                this.version = m[2].replace( /^\s+|\s+$/g, '' );
-            }
-
+        if (
+            ( m = userAgent.match ( new RegExp ( regExp, 'ig' ) ) ) &&
+            ( m = m[m.length - 1].match ( new RegExp ( regExp, 'i' ) ) )
+        ) {
+            this.name = 'IE';
+            this.version = m[2].replace ( /^\s+|\s+$/g, '' );
         }
 
         /** Check IEMobile */
