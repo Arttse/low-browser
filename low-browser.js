@@ -104,6 +104,7 @@
     };
 
     /** Universal Module Definition */
+    /* istanbul ignore next */
     if ( typeof module === 'object' && module.exports ) {
         // CommonJS
         module.exports = lowBrowser;
