@@ -103,21 +103,19 @@
 
     };
 
-    /** Check server side or browser */
-    if ( typeof exports === 'object' && module !== 'undefined' ) {
+    /** Universal Module Definition */
+    if ( typeof module === 'object' && module.exports ) {
+        // CommonJS
         module.exports = lowBrowser;
+    } else if ( typeof define === 'function' && define.amd ) {
+        // AMD. Register as an anonymous module.
+        define ( function () {
+            return lowBrowser;
+        } );
     } else {
-
-        /** Check AMD */
-        if ( typeof define === 'function' && define.amd ) {
-            define ( function () {
-                return lowBrowser;
-            } );
-        } else {
-            lowBrowser.parse( global.navigator.userAgent );
-            global.lowBrowser = lowBrowser;
-        }
-
+        // Browser globals
+        lowBrowser.parse ( global.navigator.userAgent );
+        global.lowBrowser = lowBrowser;
     }
 
 }) ( this );
