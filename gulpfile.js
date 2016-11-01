@@ -81,7 +81,8 @@ gulp.task ( 'lint.spaces', function () {
         .src ( [
             './*.?(html|js|json|yml|md)',
             './**/*.?(html|js|json|yml|md)',
-            '!./node_modules/**'
+            '!./node_modules/**',
+            '!./coverage/**'
         ] )
         .pipe ( lintSpaces ( {
             editorconfig : './.editorconfig',
