@@ -1,12 +1,5 @@
-/.*/
-/node_modules
-
-.editorconfig
-
-.jshintrc
-
-/test
-.travis.yml
-
-bower.json
-gulpfile.js
+# All
+*
+# But not
+!low-browser.js
+!low-browser.min.js
