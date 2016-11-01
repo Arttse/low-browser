@@ -4,7 +4,8 @@
   "description": "Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript",
   "main": "low-browser.js",
   "scripts": {
-    "test": "gulp check.all"
+    "test": "gulp check.all",
+    "coveralls": "gulp coveralls"
   },
   "repository": {
     "type": "git",
@@ -40,7 +41,9 @@
   "devDependencies": {
     "chai": "3",
     "gulp": "3",
+    "gulp-coveralls": "^0.1.4",
     "gulp-doctoc": "^0.1.0",
+    "gulp-istanbul": "1",
     "gulp-jshint": "2",
     "gulp-lintspaces": "^0.5.0",
     "gulp-mocha": "3",
