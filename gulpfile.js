@@ -1,16 +1,16 @@
-var gulp            = require ( 'gulp' ),
-    gulpRename      = require ( 'gulp-rename' ),
-    gulpJSHint      = require ( 'gulp-jshint' ),
-    gulpUglify      = require ( 'gulp-uglify' ),
-    gulpMocha       = require ( 'gulp-mocha' ),
-    mochaPhantomJS  = require ( 'gulp-mocha-phantomjs' ),
-    jshintStylish   = require ( 'jshint-stylish' ),
-    validatePackage = require ( 'gulp-nice-package' ),
-    toc             = require ( 'gulp-doctoc' ),
-    lintSpaces      = require ( 'gulp-lintspaces' ),
-    mapstream       = require ( 'map-stream' ),
-    sequence        = require ( 'run-sequence' ),
-    isValid;
+var gulp = require ( 'gulp' );
+var gulpRename = require ( 'gulp-rename' );
+var gulpJSHint = require ( 'gulp-jshint' );
+var gulpUglify = require ( 'gulp-uglify' );
+var gulpMocha = require ( 'gulp-mocha' );
+var mochaPhantomJS = require ( 'gulp-mocha-phantomjs' );
+var jshintStylish = require ( 'jshint-stylish' );
+var validatePackage = require ( 'gulp-nice-package' );
+var toc = require ( 'gulp-doctoc' );
+var lintSpaces = require ( 'gulp-lintspaces' );
+var mapstream = require ( 'map-stream' );
+var sequence = require ( 'run-sequence' );
+var isValid;
 
 
 process.on ( 'exit', function () {
@@ -99,7 +99,7 @@ gulp.task ( 'lints', function ( cb ) {
 /** Run server side tests */
 gulp.task ( 'test.node', function () {
     return gulp
-        .src ( './test/tests.js', { read : false } )
+        .src ( './test/tests.js', {read : false} )
         .pipe ( gulpMocha ( {
             reporter : 'dot'
         } ) );
