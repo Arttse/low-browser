@@ -16,9 +16,9 @@
   - [NPM](#npm)
   - [Bower](#bower)
 - [Usage](#usage)
-  - [Browser](#browser)
-  - [Browser (AMD)](#browser-amd)
-  - [Server side](#server-side)
+  - [Browser (globals)](#browser-globals)
+  - [AMD](#amd)
+  - [CommonJS](#commonjs)
 - [What you get](#what-you-get)
   - [Browser Name](#browser-name)
   - [Browser Version](#browser-version)
@@ -49,43 +49,51 @@ bower install low-browser --save
 
 ## Usage
 
-### Browser
+### Browser (globals)
 
 - Include script
   ```html
-  <script src="low-browser.js"></script>
+  <script src="low-browser.min.js"></script>
+  ```
+  OR with a fast CDN
+  ```html
+  <script src="https://unpkg.com/low-browser/low-browser.min.js"></script>
   ```
 
 - Work with script
   ```javascript
   //...
+  // If IE version 8.0
   if ( lowBrowser.version === '8.0' ) {
-      // Do something
+    // Do something
   }
   //...
   ```
 
-### Browser (AMD)
-> In `Asynchronous Module Definition` need to use function [parse](#parse)
+### AMD
+> In [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api) need to use function [parse](#parse)
 
 ```javascript
 define ( 'your-module', ['low-browser'], function ( lowBrowser ) {
-    lowBrowser.parse ( navigator.userAgent );
+  // Parse user agent string
+  lowBrowser.parse ( navigator.userAgent );
 
-    if ( lowBrowser.version === '8.0' ) {
-        // Do something
-    }
+  // If IE version 8.0
+  if ( lowBrowser.version === '8.0' ) {
+    // Do something
+  }
 } );
 ```
 
-### Server side
-> Low browser can be used in server side, e.g. Node.js
+### CommonJS
+> Low browser can be used as CommonJS module
 
 ```javascript
 var lowBrowser = require ( 'low-browser' ).parse ( userAgent );
 
+// If IE version 8.0
 if ( lowBrowser.version === '8.0' ) {
-    // Do something
+  // Do something
 }
 ```
 
@@ -150,7 +158,7 @@ Parses a string of user browser. After that, you can get the information of brow
 This function runs automatically if you want use this script on client side (not AMD).
 
 ```javascript
-lowBrowser.parse( userAgent );
+lowBrowser.parse ( userAgent );
 ```
 
 Where `userAgent` — string of user agent browser
