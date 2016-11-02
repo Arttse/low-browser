@@ -31,11 +31,8 @@
     "node"
   ],
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "gulpfile.js",
-    "package.json"
+    "*",
+    "!low-browser.js",
+    "!low-browser.min.js"
   ]
 }
