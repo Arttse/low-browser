@@ -14504,4 +14504,36 @@ describe ( 'Other', function () {
 
   } );
 
+  describe ( 'Check userAgent argument', function () {
+
+    it ( 'string', function () {
+      assert.doesNotThrow ( function () { return lowBrowser.parse ( '' ); } );
+    } );
+
+    it ( 'undefined', function () {
+      assert.throws ( function () { return lowBrowser.parse ( undefined ); }, TypeError );
+    } );
+
+    it ( 'null', function () {
+      assert.throws ( function () { return lowBrowser.parse ( null ); }, TypeError );
+    } );
+
+    it ( 'boolean', function () {
+      assert.throws ( function () { return lowBrowser.parse ( false ); }, TypeError );
+    } );
+
+    it ( 'number', function () {
+      assert.throws ( function () { return lowBrowser.parse ( 123 ); }, TypeError );
+    } );
+
+    it ( 'object#array', function () {
+      assert.throws ( function () { return lowBrowser.parse ( [] ); }, TypeError );
+    } );
+
+    it ( 'object#object', function () {
+      assert.throws ( function () { return lowBrowser.parse ( {} ); }, TypeError );
+    } );
+
+  } );
+
 } );
