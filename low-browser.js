@@ -19,6 +19,10 @@
    */
   lowBrowser.parse = function ( userAgent ) {
 
+    if ( typeof userAgent !== 'string' ) {
+      throw new TypeError ( 'Low Browser. Input argument userAgent must be a string, not ' + typeof userAgent );
+    }
+
     var m, regExp;
 
     this.userAgent = userAgent;
