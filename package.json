@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript",
   "main": "low-browser.js",
-  "engines" : {
+  "engines": {
     "node": ">=0.10",
     "iojs": "*"
   },
