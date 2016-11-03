@@ -9,8 +9,8 @@
 - [low-browser](https://www.npmjs.com/package/low-browser)
 - [platform](https://www.npmjs.com/package/platform)
 - [ua-parser](https://www.npmjs.com/package/ua-parser)
+- [ua-parser-js](https://www.npmjs.com/package/ua-parser-js)
 - [ua_parser](https://www.npmjs.com/package/ua_parser)
-- [user-agent-parser](https://www.npmjs.com/package/user-agent-parser)
 - [useragent](https://www.npmjs.com/package/useragent)
 - [useragent-parser](https://www.npmjs.com/package/useragent-parser)
 - [useragent_parser](https://www.npmjs.com/package/useragent_parser)
@@ -38,16 +38,16 @@ Last results:
 ```sh
 User agents count: 367
 
-express-useragent x 114 ops/sec ±1.46% (73 runs sampled)
-koopa x 379 ops/sec ±0.82% (88 runs sampled)
-low-browser x 729 ops/sec ±0.54% (90 runs sampled)
-platform x 12.31 ops/sec ±0.74% (34 runs sampled)
-ua-parser x 107 ops/sec ±0.42% (76 runs sampled)
-ua_parser x 337 ops/sec ±0.84% (86 runs sampled)
-user-agent-parser x 139 ops/sec ±1.74% (76 runs sampled)
-useragent x 48.69 ops/sec ±0.51% (62 runs sampled)
-useragent-parser x 59.22 ops/sec ±0.33% (60 runs sampled)
-useragent_parser x 73.60 ops/sec ±1.23% (73 runs sampled)
+express-useragent x 115 ops/sec ±1.47% (75 runs sampled)
+koopa x 376 ops/sec ±0.97% (87 runs sampled)
+low-browser x 769 ops/sec ±0.53% (90 runs sampled)
+platform x 12.58 ops/sec ±0.27% (35 runs sampled)
+ua-parser x 109 ops/sec ±0.28% (77 runs sampled)
+ua-parser-js x 105 ops/sec ±1.41% (75 runs sampled)
+ua_parser x 345 ops/sec ±0.44% (88 runs sampled)
+useragent x 48.93 ops/sec ±0.24% (63 runs sampled)
+useragent-parser x 60.55 ops/sec ±0.96% (62 runs sampled)
+useragent_parser x 74.85 ops/sec ±0.57% (74 runs sampled)
 
 Fastest is low-browser
 ```

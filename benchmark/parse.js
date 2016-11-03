@@ -9,11 +9,11 @@ const koopa = require ( 'koopa' );
 const lowBrowser = require ( 'low-browser' );
 const platform = require ( 'platform' );
 const uaParser = require ( 'ua-parser' );
+const uaParserJS = require ( 'ua-parser-js' );
 const ua_parser = require ( 'ua_parser' );
 const useragent = require ( 'useragent' );
 const useragentParser = require ( 'useragent-parser' );
 const useragent_parser = require ( 'useragent_parser' );
-const userAgentParser = require ( 'user-agent-parser' );
 
 /** Work with user agents */
 let userAgents = require ( '../test/user-agents' );
@@ -57,15 +57,15 @@ suite
     }
   } )
 
-  .add ( 'ua_parser', function () {
+  .add ( 'ua-parser-js', function () {
     for ( let u of userAgents ) {
-      ua_parser.userAgent ( u );
+      uaParserJS ( u );
     }
   } )
 
-  .add ( 'user-agent-parser', function () {
+  .add ( 'ua_parser', function () {
     for ( let u of userAgents ) {
-      userAgentParser ( u );
+      ua_parser.userAgent ( u );
     }
   } )
 
