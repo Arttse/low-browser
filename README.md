@@ -29,6 +29,7 @@
   - [Game Platforms](#game-platforms)
 - [Functions](#functions)
   - [parse](#parse)
+- [Tests](#tests)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -162,6 +163,35 @@ lowBrowser.parse ( userAgent );
 ```
 
 Where `userAgent` — string of user agent browser
+
+## Tests
+
+- Prepare
+  ```sh
+  # Clone repository
+  $ git clone https://github.com/Arttse/low-browser.git && cd low-browser/
+  
+  # Install gulp globally
+  $ npm i -g gulp
+  
+  # Install all dependencies for tests
+  $ npm i
+  ```
+  
+- Run tests for node.js
+  ```sh
+  $ gulp test.node
+  ```
+  
+- Run tests for browser
+  ```sh
+  $ gulp test.browser
+  ```
+  
+- Run all tests
+  ```sh
+  $ gulp tests
+  ```
 
 ## License
 [MIT](http://www.opensource.org/licenses/mit-license.php) &copy; 2015-2016 Nikita «Arttse» Bystrov
