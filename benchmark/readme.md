@@ -27,9 +27,12 @@ $ npm i
 ```
 
 ## Parse user agent
-> Run `node parse.js` for start test.
->
 > The correct parse `user agent` string for other modules is not checked. You can [run tests](../README.md#tests) and check correct parse for `low-browser`.
+
+Run benchmark:
+```sh
+$ node parse.js
+```
 
 Last results:
 ```sh
