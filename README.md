@@ -8,6 +8,21 @@
 
 > Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript
 
+
+## Why?
+Sometimes need to define only browsers from Microsoft. Other tools on JavaScript is bloated and slower. Because they seek to support most browsers.
+
+
+## Features
+
+- Pure, small and [fast](https://github.com/Arttse/low-browser/tree/master/benchmark).
+- Anything extra.
+- Has no dependencies.
+- Focused only on Microsoft browsers.
+- Supports [UMD](https://github.com/umdjs/umd): Browser (globals), AMD, CommonJS.
+- Written around 3000 tests. Coverage up to 100%.
+
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
