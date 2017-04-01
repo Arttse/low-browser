@@ -55,7 +55,7 @@
     "gulp-istanbul": "1",
     "gulp-jshint": "2",
     "gulp-lintspaces": "^0.5.0",
-    "gulp-mocha": "3",
+    "gulp-mocha": "4.3.0",
     "gulp-mocha-phantomjs": "*",
     "gulp-nice-package": "1",
     "gulp-rename": "1",
