@@ -11,6 +11,91 @@ if ( typeof require === 'function' ) {
 describe ( 'Microsoft Edge', function () {
 
   /**
+   * Edge 15 tests
+   */
+  describe ( 'Version 15', function () {
+
+    describe ( '[Desktop] Windows NT 10.0 (default user agent)', function () {
+      before ( function () {
+        lowBrowser.parse ( userAgents.edge15.desktop.defaultWin10 );
+      } );
+
+      it ( 'User Agent should be «' + userAgents.edge15.desktop.defaultWin10 + '»', function () {
+        assert.strictEqual ( lowBrowser.userAgent, userAgents.edge15.desktop.defaultWin10 );
+      } );
+
+      it ( 'Name should be «Edge»', function () {
+        assert.strictEqual ( lowBrowser.name, 'Edge' );
+      } );
+
+      it ( 'Version should be «15»', function () {
+        assert.strictEqual ( lowBrowser.version, '15' );
+      } );
+
+      it ( 'Core should be «EdgeHTML»', function () {
+        assert.strictEqual ( lowBrowser.core, 'EdgeHTML' );
+      } );
+
+      it ( 'Core Version should be «15.15063»', function () {
+        assert.strictEqual ( lowBrowser.coreVersion, '15.15063' );
+      } );
+
+      it ( 'OS should be «Windows NT 10.0»', function () {
+        assert.strictEqual ( lowBrowser.os, 'Windows NT 10.0' );
+      } );
+
+      it ( 'OS Build should be «15063»', function () {
+        assert.strictEqual ( lowBrowser.osBuild, '15063' );
+      } );
+
+      it ( 'Game Platform should be «undefined»', function () {
+        assert.isUndefined ( lowBrowser.gamePlatform );
+      } );
+
+    } );
+
+    describe ( '[Mobile] Windows Phone 10.0 (emulator)', function () {
+      before ( function () {
+        lowBrowser.parse ( userAgents.edge15.mobile.emulator );
+      } );
+
+      it ( 'User Agent should be «' + userAgents.edge15.mobile.emulator + '»', function () {
+        assert.strictEqual ( lowBrowser.userAgent, userAgents.edge15.mobile.emulator );
+      } );
+
+      it ( 'Name should be «Edge»', function () {
+        assert.strictEqual ( lowBrowser.name, 'Edge' );
+      } );
+
+      it ( 'Version should be «15»', function () {
+        assert.strictEqual ( lowBrowser.version, '15' );
+      } );
+
+      it ( 'Core should be «EdgeHTML»', function () {
+        assert.strictEqual ( lowBrowser.core, 'EdgeHTML' );
+      } );
+
+      it ( 'Core Version should be «15.15036»', function () {
+        assert.strictEqual ( lowBrowser.coreVersion, '15.15036' );
+      } );
+
+      it ( 'OS should be «Windows Phone 10.0»', function () {
+        assert.strictEqual ( lowBrowser.os, 'Windows Phone 10.0' );
+      } );
+
+      it ( 'OS Build should be «15036»', function () {
+        assert.strictEqual ( lowBrowser.osBuild, '15036' );
+      } );
+
+      it ( 'Game Platform should be «undefined»', function () {
+        assert.isUndefined ( lowBrowser.gamePlatform );
+      } );
+
+    } );
+
+  } );
+
+  /**
    * Edge 14 tests
    */
   describe ( 'Version 14', function () {
