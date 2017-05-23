@@ -64,7 +64,7 @@
     "jshint-stylish": "2",
     "map-stream": "*",
     "mocha": "3",
+    "pump": "^1.0.2",
     "run-sequence": "1"
-  },
-  "dependencies": {}
+  }
 }
