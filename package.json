@@ -59,12 +59,13 @@
     "gulp-mocha-phantomjs": "*",
     "gulp-nice-package": "1",
     "gulp-rename": "1",
-    "gulp-uglify": "2",
+    "gulp-uglify": "3",
     "jshint": "2",
     "jshint-stylish": "2",
     "map-stream": "*",
     "mocha": "3",
     "pump": "^1.0.2",
-    "run-sequence": "1"
+    "run-sequence": "1",
+    "uglify-save-license": "^0.4.1"
   }
 }

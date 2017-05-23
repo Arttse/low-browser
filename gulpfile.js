@@ -2,6 +2,7 @@ var gulp = require ( 'gulp' );
 var gulpRename = require ( 'gulp-rename' );
 var gulpJSHint = require ( 'gulp-jshint' );
 var gulpUglify = require ( 'gulp-uglify' );
+var uglifySaveLicense = require ( 'uglify-save-license' );
 var gulpMocha = require ( 'gulp-mocha' );
 var mochaPhantomJS = require ( 'gulp-mocha-phantomjs' );
 var istanbul = require ( 'gulp-istanbul' );
@@ -141,7 +142,7 @@ gulp.task ( 'coveralls', function ( cb ) {
 gulp.task ( 'compress', function ( cb ) {
   pump ( [
     gulp.src ( './low-browser.js' ),
-    gulpUglify ( {preserveComments : 'license'} ),
+    gulpUglify ( {output : {comments : uglifySaveLicense}} ),
     gulpRename ( 'low-browser.min.js' ),
     gulp.dest ( './' )
   ], cb );
