@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "benchmark": "2",
-    "flat": "2",
+    "flat": "4",
     "microtime": "2"
   }
 }
