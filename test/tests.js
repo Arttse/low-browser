@@ -11,6 +11,52 @@ if ( typeof require === 'function' ) {
 describe ( 'Microsoft Edge', function () {
 
   /**
+   * Edge 16 tests
+   */
+  describe ( 'Version 16', function () {
+
+    describe ( '[Desktop] Windows NT 10.0 (default user agent)', function () {
+      before ( function () {
+        lowBrowser.parse ( userAgents.edge16.desktop.defaultWin10 );
+      } );
+
+      it ( 'User Agent should be «' + userAgents.edge16.desktop.defaultWin10 + '»', function () {
+        assert.strictEqual ( lowBrowser.userAgent, userAgents.edge16.desktop.defaultWin10 );
+      } );
+
+      it ( 'Name should be «Edge»', function () {
+        assert.strictEqual ( lowBrowser.name, 'Edge' );
+      } );
+
+      it ( 'Version should be «16»', function () {
+        assert.strictEqual ( lowBrowser.version, '16' );
+      } );
+
+      it ( 'Core should be «EdgeHTML»', function () {
+        assert.strictEqual ( lowBrowser.core, 'EdgeHTML' );
+      } );
+
+      it ( 'Core Version should be «16.16299»', function () {
+        assert.strictEqual ( lowBrowser.coreVersion, '16.16299' );
+      } );
+
+      it ( 'OS should be «Windows NT 10.0»', function () {
+        assert.strictEqual ( lowBrowser.os, 'Windows NT 10.0' );
+      } );
+
+      it ( 'OS Build should be «16299»', function () {
+        assert.strictEqual ( lowBrowser.osBuild, '16299' );
+      } );
+
+      it ( 'Game Platform should be «undefined»', function () {
+        assert.isUndefined ( lowBrowser.gamePlatform );
+      } );
+
+    } );
+
+  } );
+
+  /**
    * Edge 15 tests
    */
   describe ( 'Version 15', function () {
