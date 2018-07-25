@@ -36,18 +36,18 @@ $ node parse.js
 
 Last results:
 ```sh
-User agents count: 367
+User agents count: 370
 
-express-useragent x 115 ops/sec ±1.47% (75 runs sampled)
-koopa x 376 ops/sec ±0.97% (87 runs sampled)
-low-browser x 769 ops/sec ±0.53% (90 runs sampled)
-platform x 12.58 ops/sec ±0.27% (35 runs sampled)
-ua-parser x 109 ops/sec ±0.28% (77 runs sampled)
-ua-parser-js x 105 ops/sec ±1.41% (75 runs sampled)
-ua_parser x 345 ops/sec ±0.44% (88 runs sampled)
-useragent x 48.93 ops/sec ±0.24% (63 runs sampled)
-useragent-parser x 60.55 ops/sec ±0.96% (62 runs sampled)
-useragent_parser x 74.85 ops/sec ±0.57% (74 runs sampled)
+express-useragent x 334 ops/sec ±0.56% (88 runs sampled)
+koopa x 1,171 ops/sec ±1.31% (93 runs sampled)
+low-browser x 1,623 ops/sec ±0.36% (94 runs sampled)
+platform x 18.04 ops/sec ±1.58% (49 runs sampled)
+ua-parser x 175 ops/sec ±0.59% (88 runs sampled)
+ua-parser-js x 163 ops/sec ±0.44% (83 runs sampled)
+ua_parser x 790 ops/sec ±1.15% (92 runs sampled)
+useragent x 48.85 ops/sec ±0.80% (64 runs sampled)
+useragent-parser x 85.31 ops/sec ±0.57% (73 runs sampled)
+useragent_parser x 165 ops/sec ±1.19% (84 runs sampled)
 
 Fastest is low-browser
 ```
