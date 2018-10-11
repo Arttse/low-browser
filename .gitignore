@@ -16,6 +16,10 @@ bower_components/
 # Test coverage
 coverage/
 
+# NPM
+package-lock.json
+*.tgz
+
 # Yarn - package manager
 .yarnclean
 yarn.lock
