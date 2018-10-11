@@ -49,23 +49,6 @@
   "homepage": "https://github.com/Arttse/low-browser#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "gulp": "^3.9.1",
-    "gulp-coveralls": "^0.1.4",
-    "gulp-doctoc": "^0.1.4",
-    "gulp-istanbul": "^1.1.3",
-    "gulp-jshint": "^2.1.0",
-    "gulp-lintspaces": "^1.0.0",
-    "gulp-mocha": "^6.0.0",
-    "gulp-mocha-phantomjs": "^0.12.2",
-    "gulp-nice-package": "^1.1.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-uglify": "^3.0.1",
-    "jshint": "^2.9.6",
-    "jshint-stylish": "^2.2.1",
-    "map-stream": "^0.0.7",
-    "mocha": "^5.2.0",
-    "pump": "^3.0.0",
-    "run-sequence": "^2.2.1",
-    "uglify-save-license": "^0.4.1"
+    "mocha": "^5.2.0"
   }
 }
