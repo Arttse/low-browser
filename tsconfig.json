@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+     "sourceMap": true,
+    "outDir": "./compiled/",
+    "noEmitOnError": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "./dist"
+  },
+  "files": [
+    "./src/low-browser.ts"
+  ]
+}

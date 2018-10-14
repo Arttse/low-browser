@@ -26,3 +26,8 @@ yarn.lock
 
 # PNPM - package manager
 shrinkwrap.yaml
+
+# Project
+!.vscode/
+compiled/
+dist/

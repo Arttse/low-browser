@@ -1,15 +1,27 @@
 {
   "name": "low-browser",
   "version": "0.2.1",
-  "description": "Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript",
-  "main": "low-browser.js",
+  "description": "Internet Explorer and Microsoft Edge browsers definition",
+  "main": "dist/low-browser.umd.js",
+  "module": "dist/low-browser.esm.js",
+  "types": "dist/low-browser.d.ts",
   "engines": {
     "node": ">=0.10",
     "iojs": "*"
   },
   "scripts": {
-    "test": "gulp check.all",
-    "coveralls": "gulp coveralls"
+    "lint": "tslint -p ./",
+    "lint:fix": "tslint -p ./ --fix",
+    "compile": "tsc -d",
+    "cleanup:compiled": "rimraf compiled",
+    "cleanup:dist": "rimraf dist",
+    "cleanup": "npm run cleanup:compiled && npm run cleanup:dist",
+    "bundle": "rollup -c",
+    "prebuild": "npm run cleanup && npm run lint",
+    "build": "npm run compile && npm run bundle",
+    "postbuild": "npm run cleanup:compiled",
+    "pretest": "npm run build",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -49,6 +61,18 @@
   "homepage": "https://github.com/Arttse/low-browser#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "lodash.camelcase": "^4.3.0",
+    "lodash.startcase": "^4.4.0",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.66.6",
+    "rollup-plugin-buble": "^0.19.4",
+    "rollup-plugin-filesize": "^4.0.1",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^3.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.3"
   }
 }
