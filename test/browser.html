@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Tests for low-browser.js</title>
+  <meta charset="UTF-8">
+  <title>Tests for Low Browser</title>
 
-    <!--Mocha settings-->
-    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
-    <script src="../node_modules/mocha/mocha.js"></script>
-    <script>
-        mocha.setup ( {
-            ui : 'bdd'
-        } );
-    </script>
+  <!--Mocha settings-->
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script>
+    mocha.setup({
+      ui: 'bdd'
+    })
+  </script>
 
-    <!--Chai settings-->
-    <script src="../node_modules/chai/chai.js"></script>
-    <script>
-        var assert = chai.assert;
-    </script>
+  <!--Chai settings-->
+  <script src="../node_modules/chai/chai.js"></script>
+  <script>
+    var assert = chai.assert
+  </script>
 
-    <!--Add low-browser script-->
-    <script src="../low-browser.js"></script>
+  <!--Add low-browser script-->
+  <script src="../dist/low-browser.umd.js"></script>
 
-    <!--Add user agents-->
-    <script src="./user-agents.js"></script>
+  <!--Add user agents-->
+  <script src="./user-agents.js"></script>
 
-    <!--Tests-->
-    <script src="./tests.js"></script>
+  <!--Tests-->
+  <script src="./tests.js"></script>
 
 </head>
 <body>
@@ -36,7 +36,8 @@
 
 <!--Run tests-->
 <script>
-    mocha.run ();
+  mocha.checkLeaks()
+  mocha.run()
 </script>
 
 </body>
