@@ -58,7 +58,8 @@
   "bugs": {
     "url": "https://github.com/Arttse/low-browser/issues"
   },
-  "homepage": "https://github.com/Arttse/low-browser#readme",
+  "homepage": "https://github.com/Arttse/low-browser",
+  "homepageShort": "https://git.io/fxB5i",
   "devDependencies": {
     "chai": "^4.2.0",
     "lodash.camelcase": "^4.3.0",
