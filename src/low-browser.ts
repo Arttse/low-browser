@@ -44,15 +44,12 @@ const lowBrowser = (userAgent: string): LowBrowserData => {
   }
 
   /** Check IE < 11 */
-  const ieRegex = 'MSIE(\\/|\\s)(\\d+\\.(\\d+|\\w+))(;|\\))'
+  const ieRegex = 'MSIE\\s(.*?)[;)]'
   m = userAgent.match(new RegExp(ieRegex, 'ig'))
+  m = m ? m[m.length - 1].match(new RegExp(ieRegex, 'i')) : null
   if (m) {
-    m = m[m.length - 1].match(new RegExp(ieRegex, 'i'))
-
-    if (m) {
-      data.name = 'IE'
-      data.version = m[2].replace(/^\s+|\s+$/g, '')
-    }
+    data.name = 'IE'
+    data.version = m[1].replace(/^\s+|\s+$/g, '')
   }
 
   /** Check IEMobile */
