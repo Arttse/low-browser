@@ -21,7 +21,7 @@
     "build": "npm run compile && npm run bundle",
     "postbuild": "npm run cleanup:compiled",
     "pretest": "npm run build",
-    "test": "mocha"
+    "test": "nyc mocha --reporter dot"
   },
   "repository": {
     "type": "git",
@@ -65,6 +65,7 @@
     "lodash.camelcase": "^4.3.0",
     "lodash.startcase": "^4.4.0",
     "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.66.6",
     "rollup-plugin-buble": "^0.19.4",
