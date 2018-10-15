@@ -3,16 +3,12 @@ import camelCase from 'lodash.camelcase'
 import startCase from 'lodash.startcase'
 import buble from 'rollup-plugin-buble'
 import sourcemaps from 'rollup-plugin-sourcemaps'
-import filesize from 'rollup-plugin-filesize'
 import { uglify } from 'rollup-plugin-uglify'
 import { terser } from 'rollup-plugin-terser'
 
 const input = `compiled/${pkg.name}.js`
 const name = camelCase(pkg.name)
 const outputFile = format => `dist/${pkg.name}.${format}.js`
-const pluginsEnd = [
-  filesize(),
-]
 const banner = `/*!
  * ${startCase(pkg.name)}. ${pkg.description}.
  * ${pkg.homepage}
@@ -37,7 +33,6 @@ export default [
     plugins: [
       buble(),
       sourcemaps(),
-      ...pluginsEnd,
     ],
   },
 
@@ -58,7 +53,6 @@ export default [
           comments: /^!/,
         },
       }),
-      ...pluginsEnd,
     ],
   },
 
@@ -74,7 +68,6 @@ export default [
     },
     plugins: [
       sourcemaps(),
-      ...pluginsEnd,
     ]
   },
 
@@ -94,7 +87,6 @@ export default [
           comments: /^!/,
         },
       }),
-      ...pluginsEnd,
     ],
   },
 ]
