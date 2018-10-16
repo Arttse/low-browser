@@ -16,13 +16,15 @@
     "compile": "tsc -d",
     "cleanup:compiled": "rimraf compiled",
     "cleanup:dist": "rimraf dist",
-    "cleanup": "npm run cleanup:compiled && npm run cleanup:dist",
+    "cleanup:coverage": "rimraf .nyc_output coverage",
+    "cleanup": "npm run cleanup:compiled && npm run cleanup:dist && npm run cleanup:coverage",
     "bundle": "rollup -c",
     "prebuild": "npm run cleanup && npm run lint",
     "build": "npm run compile && npm run bundle",
     "postbuild": "npm run cleanup:compiled",
     "pretest": "npm run build",
-    "test": "nyc mocha --reporter dot && npm run bundlesize"
+    "test": "nyc mocha --reporter dot && npm run bundlesize",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls && npm run cleanup:coverage"
   },
   "bundlesize": [
     {
@@ -91,6 +93,7 @@
   "devDependencies": {
     "bundlesize": "^0.17.0",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
     "lodash.camelcase": "^4.3.0",
     "lodash.startcase": "^4.4.0",
     "mocha": "^5.2.0",
