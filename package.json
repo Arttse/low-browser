@@ -24,7 +24,9 @@
     "postbuild": "npm run cleanup:compiled",
     "pretest": "npm run build",
     "test": "nyc mocha --reporter dot && npm run bundlesize",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls && npm run cleanup:coverage"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls && npm run cleanup:coverage",
+    "prepublishOnly": "npm run test",
+    "prepack": "npm run build"
   },
   "bundlesize": [
     {
