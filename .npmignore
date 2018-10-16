@@ -1,5 +1,4 @@
 # All
 *
 # But not
-!low-browser.js
-!low-browser.min.js
+!dist/low-browser.*
