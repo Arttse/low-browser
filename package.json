@@ -53,6 +53,11 @@
       "compression": "none"
     }
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test && npm run cleanup"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Arttse/low-browser.git"
@@ -94,6 +99,7 @@
     "bundlesize": "^0.17.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
+    "husky": "^1.1.2",
     "lodash.camelcase": "^4.3.0",
     "lodash.startcase": "^4.4.0",
     "mocha": "^5.2.0",
