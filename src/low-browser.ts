@@ -23,7 +23,7 @@ const lowBrowser = (userAgent: string): LowBrowserData => {
   /** Check Windows OS */
   m = userAgent.match(/(Windows.*?)[;)]/i)
   if (m) {
-    data.os = m[1].replace(/^\s+|\s+$/g, '')
+    data.os = m[1].trim()
 
     /** Fixes */
     data.os = data.os.replace(/NT(\d)/i, 'NT $1')
@@ -34,7 +34,7 @@ const lowBrowser = (userAgent: string): LowBrowserData => {
   m = userAgent.match(/Trident(\/|\s)(\d+\.(\d+|\w+))[;)]/i)
   if (m) {
     data.core = 'Trident'
-    data.coreVersion = m[2].replace(/^\s+|\s+$/g, '')
+    data.coreVersion = m[2].trim()
   }
 
   /** Check IE 11 */
@@ -49,24 +49,24 @@ const lowBrowser = (userAgent: string): LowBrowserData => {
   m = m ? m[m.length - 1].match(new RegExp(ieRegex, 'i')) : null
   if (m) {
     data.name = 'IE'
-    data.version = m[1].replace(/^\s+|\s+$/g, '')
+    data.version = m[1].trim()
   }
 
   /** Check IEMobile */
   m = userAgent.match(/IEMobile(\/|\s)(\d+\.(\d+|\w+))[;)]/i)
   if (m) {
     data.name = 'IEMobile'
-    data.version = m[2].replace(/^\s+|\s+$/g, '')
+    data.version = m[2].trim()
   }
 
   /** Check EDGE browser */
   m = userAgent.match(/Edge(\/|\s)(.*?)\.(\d+)/i)
   if (m) {
     data.name = 'Edge'
-    data.version = m[2].replace(/^\s+|\s+$/g, '')
-    data.osBuild = +m[3] ? m[3].replace(/^\s+|\s+$/g, '') : undefined
+    data.version = m[2].trim()
+    data.osBuild = +m[3] ? m[3].trim() : undefined
     data.core = 'EdgeHTML'
-    data.coreVersion = m[2].replace(/^\s+|\s+$/g, '') + '.' + m[3].replace(/^\s+|\s+$/g, '')
+    data.coreVersion = m[2].trim() + '.' + m[3].trim()
   }
 
   /** Check Xbox 360 */
