@@ -99,19 +99,19 @@ export interface LowBrowserData {
   /**
    * Browser Version
    *
-   * @example '8.0'
+   * @example '5.5b1'
    */
   version?: string
 
   /**
    * Browser Core
    */
-  core?: 'Trident' | 'EdgeHTML'
+  core?: 'EdgeHTML' | 'Trident'
 
   /**
    * Browser Core Version
    *
-   * @example '16.16299'
+   * @example '4.0b1'
    */
   coreVersion?: string
 
