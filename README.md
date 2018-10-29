@@ -1,12 +1,5 @@
 # Low Browser
-
-[![GitHub version](https://badge.fury.io/gh/Arttse%2Flow-browser.svg)](https://github.com/Arttse/low-browser/releases/latest)
-[![npm version](https://badge.fury.io/js/low-browser.svg)](https://www.npmjs.com/package/low-browser)
-[![Bower version](https://badge.fury.io/bo/low-browser.svg)](http://bower.io/search/?q=low-browser)
-[![Build Status](https://travis-ci.org/Arttse/low-browser.svg?branch=master)](https://travis-ci.org/Arttse/low-browser)
-[![Coverage Status](https://coveralls.io/repos/github/Arttse/low-browser/badge.svg?branch=master)](https://coveralls.io/github/Arttse/low-browser?branch=master)
-
-> Low Browser it is a small tool to definition Microsoft browsers (IE and EDGE) on JavaScript
+> Internet Explorer and Microsoft Edge browsers definition on JavaScript
 
 
 ## Why?
@@ -15,12 +8,12 @@ Sometimes need to define only browsers from Microsoft. Other tools on JavaScript
 
 ## Features
 
-- Pure, small and [fast](https://github.com/Arttse/low-browser/tree/master/benchmark).
-- Anything extra.
+- Pure, small (about 600 bytes gzip) and [fast](benchmark/).
 - Has no dependencies.
 - Focused only on Microsoft browsers.
-- Supports [UMD](https://github.com/umdjs/umd): Browser (globals), AMD, CommonJS.
-- Written around 3000 tests. Coverage up to 100%.
+- Exports as [UMD](#umd): Browser (global), AMD, CommonJS.
+- Exports as [ES Module](#es-module).
+- Has [types](#types) for TypeScript.
 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -28,22 +21,22 @@ Sometimes need to define only browsers from Microsoft. Other tools on JavaScript
 ## Table of Contents
 
 - [Install](#install)
-  - [NPM](#npm)
-  - [Bower](#bower)
 - [Usage](#usage)
-  - [Browser (globals)](#browser-globals)
-  - [AMD](#amd)
-  - [CommonJS](#commonjs)
-- [What you get](#what-you-get)
-  - [Browser Name](#browser-name)
-  - [Browser Version](#browser-version)
-  - [Browser Core](#browser-core)
-  - [Browser Core Version](#browser-core-version)
-  - [Operating System](#operating-system)
-  - [Operating System Build Number](#operating-system-build-number)
-  - [Game Platforms](#game-platforms)
-- [Functions](#functions)
-  - [parse](#parse)
+  - [ES Module](#es-module)
+  - [UMD](#umd)
+    - [Browser (global)](#browser-global)
+    - [AMD](#amd)
+    - [CommonJS](#commonjs)
+  - [Types](#types)
+- [Data object](#data-object)
+  - [userAgent](#useragent)
+  - [name](#name)
+  - [version](#version)
+  - [core](#core)
+  - [coreVersion](#coreversion)
+  - [os](#os)
+  - [osBuild](#osbuild)
+  - [gamePlatform](#gameplatform)
 - [Tests](#tests)
 - [License](#license)
 
@@ -52,161 +45,130 @@ Sometimes need to define only browsers from Microsoft. Other tools on JavaScript
 
 ## Install
 
-### NPM
-```bash
-npm install low-browser --save
+```sh
+$ yarn add low-browser
 ```
 
-### Bower
-```bash
-bower install low-browser --save
-```
+OR get it in https://unpkg.com/low-browser@0.3/dist/
 
 
 ## Usage
+> Function parses given user agent string and returns data object
 
-### Browser (globals)
-
-- Include script
-  ```html
-  <script src="low-browser.min.js"></script>
-  ```
-  OR with a fast CDN
-  ```html
-  <script src="https://unpkg.com/low-browser/low-browser.min.js"></script>
-  ```
-
-- Work with script
-  ```javascript
-  //...
-  // If IE version 8.0
-  if ( lowBrowser.version === '8.0' ) {
-    // Do something
-  }
-  //...
-  ```
-
-### AMD
-> In [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api) need to use function [parse](#parse)
+### ES Module
+> Can be downloaded from https://unpkg.com/low-browser@0.3/dist/low-browser.esm.min.js
 
 ```javascript
-define ( 'your-module', ['low-browser'], function ( lowBrowser ) {
-  // Parse user agent string
-  lowBrowser.parse ( navigator.userAgent );
+import lowBrowser from './low-browser.esm.min.js'
+//...
+const {name, version} = lowBrowser('some user agent string')
 
-  // If IE version 8.0
-  if ( lowBrowser.version === '8.0' ) {
-    // Do something
-  }
-} );
-```
-
-### CommonJS
-> Low browser can be used as CommonJS module
-
-```javascript
-var lowBrowser = require ( 'low-browser' ).parse ( userAgent );
-
-// If IE version 8.0
-if ( lowBrowser.version === '8.0' ) {
-  // Do something
+if (name === 'IE' && version === '8.0') {
+  // do something
 }
 ```
 
+### UMD
+> Can be downloaded from https://unpkg.com/low-browser@0.3/dist/low-browser.umd.min.js
 
-## What you get
-
-### Browser Name
-
-May be `IE` or `Edge`.
-
+#### Browser (global)
 ```javascript
-lowBrowser.name
+var data = lowBrowser('some user agent string')
+
+if (data.name === 'IE' && data.version === '8.0') {
+  // do something
+}
 ```
 
-### Browser Version
-
+#### AMD
 ```javascript
-lowBrowser.version
+define('your-module', ['low-browser'], function (lowBrowser) {
+  var data = lowBrowser('some user agent string')
+
+  if (data.name === 'IE' && data.version === '8.0') {
+    // do something
+  }
+})
 ```
 
-### Browser Core
-
-May be `Trident` or `EdgeHTML`.
-
+#### CommonJS
 ```javascript
-lowBrowser.core
+const lowBrowser = require('low-browser')
+//...
+const {name, version} = lowBrowser('some user agent string')
+
+if (name === 'IE' && version === '8.0') {
+  // do something
+}
 ```
 
-### Browser Core Version
+### Types
+> For TypeScript. Included in package. Can be downloaded from https://unpkg.com/low-browser@0.3/dist/low-browser.d.ts
 
-```javascript
-lowBrowser.coreVersion
-```
 
-### Operating System
+## Data object
+> Returns data object after parsing given user agent string
 
-```javascript
-lowBrowser.os
-```
+### userAgent
+> Input user agent string
 
-### Operating System Build Number
+Type: `string`
 
-Only for `Edge`.
+### name
+> Browser name
 
-```javascript
-lowBrowser.osBuild
-```
+Type: `string`  
+May be `Edge`, `IE`, `IEMobile`
 
-### Game Platforms
+### version
+> Browser version
 
-May be `Xbox 360` or `Xbox One`.
+Type: `string`  
+Example: `5.5b1`
 
-```javascript
-lowBrowser.gamePlatform
-```
+### core
+> Browser core name
 
-## Functions
+Type: `string`  
+May be `EdgeHTML` or `Trident`.
 
-### parse
+### coreVersion
+> Browser core version
 
-Parses a string of user browser. After that, you can get the information of browser.
-This function runs automatically if you want use this script on client side (not AMD).
+Type: `string`  
+Example: `4.0b1`
 
-```javascript
-lowBrowser.parse ( userAgent );
-```
+### os
+> Operating System
 
-Where `userAgent` — string of user agent browser
+Type: `string`  
+Example: `Windows NT 10.0`
+
+### osBuild
+> Operating System Build Number  
+> Only for Microsoft Edge browser
+
+Type: `number`  
+Example: `16299`
+
+### gamePlatform
+> Game Platform
+
+Type: `string`  
+May be `Xbox 360` or `Xbox One`
+
 
 ## Tests
+```sh
+# Clone repository
+$ git clone https://github.com/Arttse/low-browser.git && cd low-browser/
 
-- Prepare
-  ```sh
-  # Clone repository
-  $ git clone https://github.com/Arttse/low-browser.git && cd low-browser/
-  
-  # Install gulp globally
-  $ npm i -g gulp
-  
-  # Install all dependencies for tests
-  $ npm i
-  ```
-  
-- Run tests for node.js
-  ```sh
-  $ gulp test.node
-  ```
-  
-- Run tests for browser
-  ```sh
-  $ gulp test.browser
-  ```
-  
-- Run all tests
-  ```sh
-  $ gulp tests
-  ```
+# Install all dependencies
+$ yarn
+
+# Run tests
+$ yarn run test
+```
 
 ## License
-[MIT](http://www.opensource.org/licenses/mit-license.php) &copy; 2015-2016 Nikita «Arttse» Bystrov
+[MIT](LICENSE) &copy; 2015-2018 Nikita Bystrov (Arttse)
