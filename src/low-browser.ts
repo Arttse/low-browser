@@ -24,17 +24,15 @@ const lowBrowser = (userAgent: string): LowBrowserData => {
   m = userAgent.match(/(Windows.*?)[;)]/i)
   if (m) {
     data.os = m[1].trim()
-
-    /** Fixes */
-    data.os = data.os.replace(/NT(\d)/i, 'NT $1')
-    data.os = data.os.replace(/(NT\s\d{1,2})$/i, '$1.0')
+      .replace(/NT(\d)/i, 'NT $1')
+      .replace(/(NT\s\d{1,2})$/i, '$1.0')
   }
 
   /** Check Trident version core */
-  m = userAgent.match(/Trident(\/|\s)(\d+\.(\d+|\w+))[;)]/i)
+  m = userAgent.match(/Trident[\/\s](\d+\.[\d\w]+)[;)]/i)
   if (m) {
     data.core = 'Trident'
-    data.coreVersion = m[2].trim()
+    data.coreVersion = m[1].trim()
   }
 
   /** Check IE 11 */
@@ -53,30 +51,32 @@ const lowBrowser = (userAgent: string): LowBrowserData => {
   }
 
   /** Check IEMobile */
-  m = userAgent.match(/IEMobile(\/|\s)(\d+\.(\d+|\w+))[;)]/i)
+  m = userAgent.match(/IEMobile[\/\s](\d+\.[\d\w]+)[;)]/i)
   if (m) {
     data.name = 'IEMobile'
-    data.version = m[2].trim()
+    data.version = m[1].trim()
   }
 
   /** Check EDGE browser */
-  m = userAgent.match(/Edge(\/|\s)(.*?)\.(\d+)/i)
+  m = userAgent.match(/Edge[\/\s](.*?)\.(\d+)/i)
   if (m) {
     data.name = 'Edge'
-    data.version = m[2].trim()
-    data.osBuild = +m[3] ? m[3].trim() : undefined
+    data.version = m[1].trim()
+
+    const osBuild = +m[2]
+    if (osBuild) {
+      data.osBuild = osBuild
+    }
+
     data.core = 'EdgeHTML'
-    data.coreVersion = m[2].trim() + '.' + m[3].trim()
+    data.coreVersion = `${data.version}.${osBuild || 0}`
   }
 
-  /** Check Xbox 360 */
+  /** Check Xbox */
   if (/Xbox/i.test(userAgent)) {
-    data.gamePlatform = 'Xbox 360'
-  }
-
-  /** Check Xbox One */
-  if (/Xbox One/i.test(userAgent)) {
-    data.gamePlatform = 'Xbox One'
+    data.gamePlatform = /Xbox\sOne/i.test(userAgent)
+      ? 'Xbox One'
+      : 'Xbox 360'
   }
 
   return data
@@ -126,9 +126,9 @@ export interface LowBrowserData {
    * Operating System Build Number.
    * Only for Microsoft Edge browser
    *
-   * @example '16299'
+   * @example 16299
    */
-  osBuild?: string
+  osBuild?: number
 
   /**
    * Game Platforms
