@@ -2,13 +2,16 @@
   "name": "low-browser-benchmark",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start": "node parse.js"
+  },
   "dependencies": {
     "express-useragent": "^1.0.12",
     "koopa": "^1.0.2",
-    "low-browser": "^0.2.1",
+    "low-browser": "^0.3.0",
     "platform": "^1.3.5",
     "ua-parser": "^0.3.5",
-    "ua-parser-js": "^0.7.18",
+    "ua-parser-js": "^0.7.19",
     "ua_parser": "^1.2.4",
     "useragent": "^2.3.0",
     "useragent-parser": "^0.1.1",
@@ -16,7 +19,6 @@
   },
   "devDependencies": {
     "benchmark": "^2.1.4",
-    "flat": "^4.1.0",
     "microtime": "^2.1.8"
   }
 }

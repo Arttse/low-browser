@@ -1,6 +1,6 @@
 # Low Browser Benchmark
 > Using [benchmark](https://www.npmjs.com/package/benchmark) for race.  
-> Using [user agents](../test/user-agents.js) only browsers Microsoft.
+> Using user agents only Microsoft Edge and Internet Explorer browsers.
 
 ## List of participating
 
@@ -31,26 +31,23 @@ $ npm i
 
 Run benchmark:
 ```sh
-$ node parse.js
+$ npm start
 ```
 
 Last results:
 ```sh
-User agents count: 370
+User agents count: 83
 
-express-useragent x 334 ops/sec ±0.56% (88 runs sampled)
-koopa x 1,171 ops/sec ±1.31% (93 runs sampled)
-low-browser x 1,623 ops/sec ±0.36% (94 runs sampled)
-platform x 18.04 ops/sec ±1.58% (49 runs sampled)
-ua-parser x 175 ops/sec ±0.59% (88 runs sampled)
-ua-parser-js x 163 ops/sec ±0.44% (83 runs sampled)
-ua_parser x 790 ops/sec ±1.15% (92 runs sampled)
-useragent x 48.85 ops/sec ±0.80% (64 runs sampled)
-useragent-parser x 85.31 ops/sec ±0.57% (73 runs sampled)
-useragent_parser x 165 ops/sec ±1.19% (84 runs sampled)
+express-useragent x 916 ops/sec ±3.46% (91 runs sampled)
+koopa x 2,600 ops/sec ±1.37% (94 runs sampled)
+low-browser x 6,002 ops/sec ±0.99% (92 runs sampled)
+platform x 44.96 ops/sec ±1.48% (59 runs sampled)
+ua-parser x 648 ops/sec ±0.20% (94 runs sampled)
+ua-parser-js x 562 ops/sec ±0.96% (93 runs sampled)
+ua_parser x 1,854 ops/sec ±0.49% (95 runs sampled)
+useragent x 173 ops/sec ±0.13% (86 runs sampled)
+useragent-parser x 331 ops/sec ±0.68% (91 runs sampled)
+useragent_parser x 537 ops/sec ±0.39% (91 runs sampled)
 
 Fastest is low-browser
 ```
-
-## Contribute
-Feel free to add new modules for race.
