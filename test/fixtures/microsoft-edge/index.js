@@ -4,4 +4,5 @@ module.exports = [
   ...require('./version-14'),
   ...require('./version-15'),
   ...require('./version-16'),
+  ...require('./version-17'),
 ]
